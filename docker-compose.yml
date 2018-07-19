@@ -1,0 +1,19 @@
+version: '2'
+
+services:
+  my-wp:
+    image: wordpress
+    volumes:
+      - ./charitize-child-theme:/var/www/html/wp-content/themes/charitize-child-theme
+    ports:
+      - "8080:80"
+    environment:
+      WORDPRESS_DB_PASSWORD: ChangeMeIfYouWant
+
+  mysql:
+    image: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: ChangeMeIfYouWant
+
+volumes:
+  charitize-child-theme:
